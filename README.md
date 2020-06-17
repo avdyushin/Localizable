@@ -32,7 +32,13 @@ $ ./make.sh strings.xml output output/Strings.swift
 
 ### Using Localizable Swift Property Wrapper
 
-TODO
+Consider you have generated `enum` with strings identifiers:
+
+```swift
+class MyViewModel {
+    @Localizable var login = Strings.login
+}
+```
 
 ### Integration with Xcode's project
 
