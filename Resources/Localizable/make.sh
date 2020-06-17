@@ -17,8 +17,8 @@ fi
 
 for LANG in $(xsltproc list.xslt $INPUT_XML)
 do
-    mkdir -p $OUTPUT_PATH/$LANG
-    xsltproc --stringparam lang $LANG strings.xslt $INPUT_XML > $OUTPUT_PATH/$LANG/Localizable.strings
+    mkdir -p $OUTPUT_PATH/$LANG.lproj
+    xsltproc --stringparam lang $LANG strings.xslt $INPUT_XML > $OUTPUT_PATH/$LANG.lproj/Localizable.strings
     echo "Processed $LANG into $OUTPUT_PATH/$LANG/Localizable.strings"
     ((ITEMS += 1))
 done

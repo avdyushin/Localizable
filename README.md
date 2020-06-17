@@ -30,19 +30,19 @@ Generating Localizable.strings:
 $ ./make.sh strings.xml output output/Strings.swift
 ```
 
-### Using Localizable Swift Property Wrapper
-
-Consider you have generated `enum` with strings identifiers:
-
-```swift
-class MyViewModel {
-    @Localizable var login = Strings.login
-}
-```
-
 ### Integration with Xcode's project
 
-TODO
+1. Copy `Resources/Localizable` folder into project's `Resources`
+1. Place your translations `Strings.xml` file into `Resources`
+1. Add new Build Phase to generate strings
+
+```sh
+cd $SRCROOT/$TARGETNAME/Resources/Localizable
+./make.sh $SCRIPT_INPUT_FILE_0 .. $SCRIPT_OUTPUT_FILE_0
+```
+
+- Input Files: `$(SRCROOT)/$(TARGETNAME)/Resources/Strings.xml`
+- Output Files: `$(SRCROOT)/$(TARGETNAME)/Strings.swift`
 
 #### Links
 [Using XML and XSLT for code generation](https://grigory.nl/posts/xslt-auto-generation/)
