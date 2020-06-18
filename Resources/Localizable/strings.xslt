@@ -5,10 +5,10 @@
     xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
 <xsl:output omit-xml-declaration="yes"/>
-<xsl:variable name="defaultLang">
+<xsl:variable name="default">
     <xsl:text>en</xsl:text>
 </xsl:variable>
-<xsl:param name="lang" select="$defaultLang"/>
+<xsl:param name="lang" select="$default"/>
 
 <xsl:template match="/">
 <xsl:text>/// Auto-generated</xsl:text>

@@ -30,6 +30,19 @@ Generating Localizable.strings:
 $ ./make.sh strings.xml output output/Strings.swift
 ```
 
+This will generate given `enum` to have auto-completion in code and avoid any typo errors:
+
+```swift
+/// Auto-generated
+
+import Localizable
+
+enum Strings {
+    @Localizable static var login = "login"
+    @Localizable static var sign_in = "sign_in"
+}
+```
+
 ### Integration with Xcode's project
 
 1. Copy `Resources/Localizable` folder into project's `Resources`
@@ -43,6 +56,23 @@ cd $SRCROOT/$TARGETNAME/Resources/Localizable
 
 - Input Files: `$(SRCROOT)/$(TARGETNAME)/Resources/Strings.xml`
 - Output Files: `$(SRCROOT)/$(TARGETNAME)/Strings.swift`
+
+### Reformat input XML
+
+As an option here is possible to reformat input source XML to keep languages in sorted order:
+
+```sh
+$ format.sh Strings.xml
+```
+
+This will overwrite existing file.
+
+### How to add it to Xcode project?
+
+1. In Xcode select **File ⭢ Swift Packages ⭢ Add Package Dependency...**
+1. Copy-paste repository URL: **https://github.com/avdyushin/Localizable**
+1. Hit **Next** two times, under **Add to Target** select your build target.
+1. Hit **Finish**
 
 #### Links
 [Using XML and XSLT for code generation](https://grigory.nl/posts/xslt-auto-generation/)

@@ -7,8 +7,9 @@
 <xsl:output omit-xml-declaration="yes"/>
 <xsl:key name="lang_id" match="/strings/string/node()" use="name(.)"/>
 
+<xsl:variable name="all" select="strings/string/node()[generate-id() = generate-id(key('lang_id',name(.))[1])]"/>
 <xsl:template match="/">
-    <xsl:for-each select="strings/string/node()[generate-id() = generate-id(key('lang_id',name(.))[1])]">
+    <xsl:for-each select="$all">
         <xsl:value-of select="name(.)"/><xsl:text>&#xa;</xsl:text>
     </xsl:for-each>
 </xsl:template>
